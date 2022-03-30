@@ -21,7 +21,11 @@ namespace Bars
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            for (BigInteger i =bars;i>0;i++)
+            {
+                Form3 form3 = new Form3();
+                form3.Show();
+            }
         }
 
         private void tick_Tick(object sender, EventArgs e)

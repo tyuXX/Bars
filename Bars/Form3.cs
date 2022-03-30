@@ -238,5 +238,11 @@ namespace Bars
                 progressBar24.Value++;
             }
         }
+
+        private void Form3_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Form3 form3 = new Form3();
+            form3.Show();
+        }
     }
 }
