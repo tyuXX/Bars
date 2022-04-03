@@ -259,6 +259,7 @@
             this.Controls.Add(this.progressBar3);
             this.Controls.Add(this.progressBar2);
             this.Controls.Add(this.progressBar1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "Form3";
             this.Text = "Bars";
             this.WindowState = System.Windows.Forms.FormWindowState.Minimized;

@@ -84,6 +84,7 @@ namespace Bars
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.textBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "Form4";
             this.Text = "Developer Page";
             this.Load += new System.EventHandler(this.Form4_Load);

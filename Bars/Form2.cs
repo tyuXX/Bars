@@ -26,6 +26,10 @@ namespace Bars
 
         private void up_Tick(object sender, EventArgs e)
         {
+            if(!(minimum < 40))
+            {
+                button3.Hide();
+            }
             label1.Text = "LD:" + loads;
             label2.Text = "Bars:" + bars;
             label3.Text = "+LD:" + (sub - 1);
