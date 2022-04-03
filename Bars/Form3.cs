@@ -24,122 +24,122 @@ namespace Bars
             if(progressBar1.Value == progressBar1.Maximum)
             {
                 progressBar1.Value = minimum;
-                loads += sub;
+                loads += sub * mult;
             }
             if (progressBar2.Value == progressBar2.Maximum)
             {
                 progressBar2.Value = minimum;
-                loads += sub;
+                loads += sub * mult;
             }
             if (progressBar3.Value == progressBar3.Maximum)
             {
                 progressBar3.Value = minimum;
-                loads += sub;
+                loads += sub * mult;
             }
             if (progressBar4.Value == progressBar4.Maximum)
             {
                 progressBar4.Value = minimum;
-                loads += sub;
+                loads += sub * mult;
             }
             if (progressBar5.Value == progressBar5.Maximum)
             {
                 progressBar5.Value = minimum;
-                loads += sub;
+                loads += sub * mult;
             }
             if (progressBar6.Value == progressBar6.Maximum)
             {
                 progressBar6.Value = minimum;
-                loads += sub;
+                loads += sub * mult;
             }
             if (progressBar7.Value == progressBar7.Maximum)
             {
                 progressBar7.Value = minimum;
-                loads += sub;
+                loads += sub * mult;
             }
             if (progressBar8.Value == progressBar8.Maximum)
             {
                 progressBar8.Value = minimum;
-                loads += sub;
+                loads += sub * mult;
             }
             if (progressBar9.Value == progressBar9.Maximum)
             {
                 progressBar9.Value = minimum;
-                loads += sub;
+                loads += sub * mult;
             }
             if (progressBar10.Value == progressBar10.Maximum)
             {
                 progressBar10.Value = minimum;
-                loads += sub;
+                loads += sub * mult;
             }
             if (progressBar11.Value == progressBar11.Maximum)
             {
                 progressBar11.Value = minimum;
-                loads += sub;
+                loads += sub * mult;
             }
             if (progressBar12.Value == progressBar12.Maximum)
             {
                 progressBar12.Value = minimum;
-                loads += sub;
+                loads += sub * mult;
             }
             if (progressBar13.Value == progressBar13.Maximum)
             {
                 progressBar13.Value = minimum;
-                loads += sub;
+                loads += sub * mult;
             }
             if (progressBar14.Value == progressBar14.Maximum)
             {
                 progressBar14.Value = minimum;
-                loads += sub;
+                loads += sub * mult;
             }
             if (progressBar15.Value == progressBar15.Maximum)
             {
                 progressBar15.Value = minimum;
-                loads += sub;
+                loads += sub * mult;
             }
             if (progressBar16.Value == progressBar16.Maximum)
             {
                 progressBar16.Value = minimum;
-                loads += sub;
+                loads += sub * mult;
             }
             if (progressBar17.Value == progressBar17.Maximum)
             {
                 progressBar17.Value = minimum;
-                loads += sub;
+                loads += sub * mult;
             }
             if (progressBar18.Value == progressBar18.Maximum)
             {
                 progressBar18.Value = minimum;
-                loads += sub;
+                loads += sub * mult;
             }
             if (progressBar19.Value == progressBar19.Maximum)
             {
                 progressBar19.Value = minimum;
-                loads += sub;
+                loads += sub * mult;
             }
             if (progressBar20.Value == progressBar20.Maximum)
             {
                 progressBar20.Value = 0;
-                loads += sub;
+                loads += sub * mult;
             }
             if (progressBar21.Value == progressBar21.Maximum)
             {
                 progressBar21.Value = minimum;
-                loads += sub;
+                loads += sub * mult;
             }
             if (progressBar22.Value == progressBar22.Maximum)
             {
                 progressBar22.Value = minimum;
-                loads += sub;
+                loads += sub * mult;
             }
             if (progressBar23.Value == progressBar23.Maximum)
             {
                 progressBar23.Value = minimum;
-                loads += sub;
+                loads += sub * mult;
             }
             if (progressBar24.Value == progressBar24.Maximum)
             {
                 progressBar24.Value = minimum;
-                loads += sub;
+                loads += sub * mult;
             }
             if (bars > 0)
             {
@@ -243,6 +243,11 @@ namespace Bars
         {
             Form3 form3 = new Form3();
             form3.Show();
+        }
+
+        private void Form3_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

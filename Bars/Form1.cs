@@ -23,6 +23,7 @@ namespace Bars
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            button2.Hide();
             if (!string.IsNullOrEmpty(parame))
             {
                 try
@@ -31,12 +32,14 @@ namespace Bars
                     minimum = Convert.ToInt32(decode(master[0], hs));
                     sub = BigInteger.Parse(decode(master[1], hs));
                     loads = BigInteger.Parse(decode(master[2], hs));
-                    banks = BigInteger.Parse(decode(master[3], hs));
-                    bars = BigInteger.Parse(decode(master[4], hs));
+                    bars = BigInteger.Parse(decode(master[3], hs));
+                    banks = BigInteger.Parse(decode(master[4], hs));
                     prices[0] = BigInteger.Parse(decode(master[5], hs));
                     prices[1] = BigInteger.Parse(decode(master[6], hs));
                     prices[2] = BigInteger.Parse(decode(master[7], hs));
                     prices[3] = BigInteger.Parse(decode(master[8], hs));
+                    mult = BigInteger.Parse(decode(master[9], hs));
+                    rebirts = BigInteger.Parse(decode(master[10], hs));
                     for (BigInteger i = bars; i > 0; i++)
                     {
                         Form3 form3 = new Form3();
@@ -55,11 +58,19 @@ namespace Bars
             if(progressBar1.Value == progressBar1.Maximum)
             {
                 progressBar1.Value = minimum;
-                loads += sub;
+                loads += sub * mult;
             }
             progressBar1.Value++;
             label1.Text = "%" + progressBar1.Value.ToString();
             label2.Text = "Loads:" + loads.ToString();
+            if (loads > BigInteger.Pow(rebirts + 2,16) || bypass)
+            {
+                button2.Show();
+            }
+            else
+            {
+                button2.Hide();
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -83,7 +94,7 @@ namespace Bars
         {
             try
             {
-                string[] master = { encode(minimum.ToString(),hs), encode(sub.ToString(),hs), encode(loads.ToString(),hs), encode(bars.ToString(),hs), encode(banks.ToString(), hs), encode(prices[0].ToString(),hs), encode(prices[1].ToString(), hs), encode(prices[2].ToString(), hs), encode(prices[3].ToString(), hs) };
+                string[] master = { encode(minimum.ToString(),hs), encode(sub.ToString(),hs), encode(loads.ToString(),hs), encode(bars.ToString(),hs), encode(banks.ToString(), hs), encode(prices[0].ToString(),hs), encode(prices[1].ToString(), hs), encode(prices[2].ToString(), hs), encode(prices[3].ToString(), hs), encode(mult.ToString(), hs), encode(rebirts.ToString(), hs) };
                 saveFileDialog1.Filter = "Bars save files (*.brs) | *.brs";
                 if (saveFileDialog1.ShowDialog() == DialogResult.OK)
                 {
@@ -108,12 +119,14 @@ namespace Bars
                     minimum = Convert.ToInt32(decode(master[0],hs));
                     sub = BigInteger.Parse(decode(master[1],hs));
                     loads = BigInteger.Parse(decode(master[2],hs));
-                    banks = BigInteger.Parse(decode(master[3],hs));
-                    bars = BigInteger.Parse(decode(master[4],hs));
+                    bars = BigInteger.Parse(decode(master[3],hs));
+                    banks = BigInteger.Parse(decode(master[4],hs));
                     prices[0] = BigInteger.Parse(decode(master[5],hs));
                     prices[1] = BigInteger.Parse(decode(master[6],hs));
                     prices[2] = BigInteger.Parse(decode(master[7],hs));
                     prices[3] = BigInteger.Parse(decode(master[8],hs));
+                    mult = BigInteger.Parse(decode(master[9], hs));
+                    rebirts = BigInteger.Parse(decode(master[10], hs));
                     for (BigInteger i = bars; i > 0; i++)
                     {
                         Form3 form3 = new Form3();
@@ -153,6 +166,18 @@ namespace Bars
                     return (UnicodeEncoding.Unicode.GetString(results));
                 }
             }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            minimum = 0;
+            sub = 1;
+            loads = 0;
+            bars = 0;
+            banks = 0;
+            mult += 1;
+            rebirts += 1;
+            prices = new BigInteger[] { 10 ,100,1000,1000000};
         }
     }
 }

@@ -27,6 +27,10 @@ namespace Bars
         private void up_Tick(object sender, EventArgs e)
         {
             label1.Text = "LD:" + loads;
+            label2.Text = "Bars:" + bars;
+            label3.Text = "+LD:" + (sub - 1);
+            label4.Text = "Minimum:" + minimum;
+            label5.Text = "Banks:" + banks;
             button1.Text = "More Bars:" + prices[0] + "LD";
             button2.Text = "Extra LD:" + prices[1] + "LD";
             button3.Text = "Higher Min:" + prices[2] + "LD";
