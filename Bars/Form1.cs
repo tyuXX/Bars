@@ -41,6 +41,7 @@ namespace Bars
                     mult = BigInteger.Parse(decode(master[9], hs));
                     rebirts = BigInteger.Parse(decode(master[10], hs));
                     tax = BigInteger.Parse(decode(master[11], hs));
+                    taxevade = Convert.ToBoolean(decode(master[12], hs));
                     for (BigInteger i = bars; i > 0; i++)
                     {
                         Form3 form3 = new Form3();
@@ -95,7 +96,7 @@ namespace Bars
         {
             try
             {
-                string[] master = { encode(minimum.ToString(),hs), encode(sub.ToString(),hs), encode(loads.ToString(),hs), encode(bars.ToString(),hs), encode(banks.ToString(), hs), encode(prices[0].ToString(),hs), encode(prices[1].ToString(), hs), encode(prices[2].ToString(), hs), encode(prices[3].ToString(), hs), encode(mult.ToString(), hs), encode(rebirts.ToString(), hs), encode(tax.ToString(), hs) };
+                string[] master = { encode(minimum.ToString(),hs), encode(sub.ToString(),hs), encode(loads.ToString(),hs), encode(bars.ToString(),hs), encode(banks.ToString(), hs), encode(prices[0].ToString(),hs), encode(prices[1].ToString(), hs), encode(prices[2].ToString(), hs), encode(prices[3].ToString(), hs), encode(mult.ToString(), hs), encode(rebirts.ToString(), hs), encode(tax.ToString(), hs), encode(taxevade.ToString(), hs) };
                 saveFileDialog1.Filter = "Bars save files (*.brs) | *.brs";
                 if (saveFileDialog1.ShowDialog() == DialogResult.OK)
                 {
@@ -129,6 +130,7 @@ namespace Bars
                     mult = BigInteger.Parse(decode(master[9], hs));
                     rebirts = BigInteger.Parse(decode(master[10], hs));
                     tax = BigInteger.Parse(decode(master[11], hs));
+                    taxevade = Convert.ToBoolean(decode(master[12], hs));
                     for (BigInteger i = bars; i > 0; i++)
                     {
                         Form3 form3 = new Form3();
@@ -184,7 +186,7 @@ namespace Bars
 
         private void tax_Tick(object sender, EventArgs e)
         {
-            if (!bypass)
+            if ((!taxevade) || (!bypass))
             {
                 loads -= (loads / tax);
             }

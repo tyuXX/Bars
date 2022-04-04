@@ -30,6 +30,10 @@ namespace Bars
             {
                 button3.Hide();
             }
+            if (taxevade)
+            {
+                button5.Hide();
+            }
             label1.Text = "LD:" + loads;
             label2.Text = "Bars:" + bars;
             label3.Text = "+LD:" + (sub - 1);
@@ -83,6 +87,15 @@ namespace Bars
                 loads -= prices[3];
                 prices[3] *= 10;
                 banks += 1;
+            }
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            if (loads > 10000000 || bypass)
+            {
+                loads -= 10000000;
+                taxevade = true;
             }
         }
     }
