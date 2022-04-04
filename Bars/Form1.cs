@@ -40,6 +40,7 @@ namespace Bars
                     prices[3] = BigInteger.Parse(decode(master[8], hs));
                     mult = BigInteger.Parse(decode(master[9], hs));
                     rebirts = BigInteger.Parse(decode(master[10], hs));
+                    tax = BigInteger.Parse(decode(master[11], hs));
                     for (BigInteger i = bars; i > 0; i++)
                     {
                         Form3 form3 = new Form3();
@@ -94,12 +95,12 @@ namespace Bars
         {
             try
             {
-                string[] master = { encode(minimum.ToString(),hs), encode(sub.ToString(),hs), encode(loads.ToString(),hs), encode(bars.ToString(),hs), encode(banks.ToString(), hs), encode(prices[0].ToString(),hs), encode(prices[1].ToString(), hs), encode(prices[2].ToString(), hs), encode(prices[3].ToString(), hs), encode(mult.ToString(), hs), encode(rebirts.ToString(), hs) };
+                string[] master = { encode(minimum.ToString(),hs), encode(sub.ToString(),hs), encode(loads.ToString(),hs), encode(bars.ToString(),hs), encode(banks.ToString(), hs), encode(prices[0].ToString(),hs), encode(prices[1].ToString(), hs), encode(prices[2].ToString(), hs), encode(prices[3].ToString(), hs), encode(mult.ToString(), hs), encode(rebirts.ToString(), hs), encode(tax.ToString(), hs) };
                 saveFileDialog1.Filter = "Bars save files (*.brs) | *.brs";
                 if (saveFileDialog1.ShowDialog() == DialogResult.OK)
                 {
                     File.WriteAllLines(saveFileDialog1.FileName, master);
-                    saveloc = saveFileDialog1.FileName;
+                    parame = saveFileDialog1.FileName;
                 }
             }
             catch(Exception ex)
@@ -127,6 +128,7 @@ namespace Bars
                     prices[3] = BigInteger.Parse(decode(master[8],hs));
                     mult = BigInteger.Parse(decode(master[9], hs));
                     rebirts = BigInteger.Parse(decode(master[10], hs));
+                    tax = BigInteger.Parse(decode(master[11], hs));
                     for (BigInteger i = bars; i > 0; i++)
                     {
                         Form3 form3 = new Form3();
@@ -178,6 +180,41 @@ namespace Bars
             mult += 1;
             rebirts += 1;
             prices = new BigInteger[] { 10 ,100,1000,1000000};
+        }
+
+        private void tax_Tick(object sender, EventArgs e)
+        {
+            if (!bypass)
+            {
+                loads -= (loads / tax);
+            }
+        }
+
+        private void oNToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (autosave.Enabled)
+            {
+                oNToolStripMenuItem.Text = "OFF";
+                autosave.Enabled = false;
+            }
+            else
+            {
+                oNToolStripMenuItem.Text = "ON";
+                autosave.Enabled = true;
+            }
+        }
+
+        private void autosave_Tick(object sender, EventArgs e)
+        {
+            try
+            {
+                string[] master = { encode(minimum.ToString(), hs), encode(sub.ToString(), hs), encode(loads.ToString(), hs), encode(bars.ToString(), hs), encode(banks.ToString(), hs), encode(prices[0].ToString(), hs), encode(prices[1].ToString(), hs), encode(prices[2].ToString(), hs), encode(prices[3].ToString(), hs), encode(mult.ToString(), hs), encode(rebirts.ToString(), hs), encode(tax.ToString(), hs) };
+                File.WriteAllLines(parame, master);
+            }
+            catch (Exception ex)
+            {
+
+            }
         }
     }
 }
