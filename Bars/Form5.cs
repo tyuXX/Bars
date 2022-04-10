@@ -33,7 +33,10 @@ namespace Bars
             if(random.Next(1,100) < chance + 1 || bypass)
             {
                 loads += bet;
-                chance--;
+                if (chance > 1)
+                {
+                    chance--;
+                }
             }
             else
             {
@@ -61,7 +64,10 @@ namespace Bars
             if (random.Next(1, 100) < chance + 1 || bypass)
             {
                 loads += loads;
-                chance--;
+                if(chance > 1)
+                {
+                    chance--;
+                }
             }
             else
             {
