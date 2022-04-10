@@ -14,6 +14,7 @@ namespace Bars
 {
     public partial class Form3 : Form
     {
+        internal BigInteger barid = 1;
         public Form3()
         {
             InitializeComponent();
@@ -237,12 +238,19 @@ namespace Bars
             {
                 progressBar24.Value++;
             }
+            if (barid > bars)
+            {
+                Close();
+            }
         }
 
         private void Form3_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Form3 form3 = new Form3();
-            form3.Show();
+            if(barid <= bars)
+            {
+                Form3 form3 = new Form3();
+                form3.Show();
+            }
         }
 
         private void Form3_Load(object sender, EventArgs e)

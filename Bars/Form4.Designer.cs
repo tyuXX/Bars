@@ -87,6 +87,7 @@ namespace Bars
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "Form4";
             this.Text = "Developer Page";
+            this.TopMost = true;
             this.Load += new System.EventHandler(this.Form4_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -42,9 +42,10 @@ namespace Bars
                     rebirts = BigInteger.Parse(decode(master[10], hs));
                     tax = BigInteger.Parse(decode(master[11], hs));
                     taxevade = Convert.ToBoolean(decode(master[12], hs));
-                    for (BigInteger i = bars; i > 0; i++)
+                    for (BigInteger bar = 0; bar < bars; bar++)
                     {
                         Form3 form3 = new Form3();
+                        form3.barid = bar;
                         form3.Show();
                     }
                 }
@@ -131,9 +132,10 @@ namespace Bars
                     rebirts = BigInteger.Parse(decode(master[10], hs));
                     tax = BigInteger.Parse(decode(master[11], hs));
                     taxevade = Convert.ToBoolean(decode(master[12], hs));
-                    for (BigInteger i = bars; i > 0; i++)
+                    for (BigInteger bar = 0; bar < bars;bar++)
                     {
                         Form3 form3 = new Form3();
+                        form3.barid = bar;
                         form3.Show();
                     }
                 }
@@ -216,6 +218,20 @@ namespace Bars
             catch (Exception ex)
             {
 
+            }
+        }
+
+        private void oFFToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (TopMost)
+            {
+                oFFToolStripMenuItem.Text = "OFF";
+                TopMost = false;
+            }
+            else
+            {
+                oFFToolStripMenuItem.Text = "ON";
+                TopMost = true;
             }
         }
     }

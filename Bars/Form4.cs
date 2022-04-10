@@ -44,9 +44,10 @@ namespace Bars
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Form3 form3 = new Form3();
-            form3.Show();
             bars++;
+            Form3 form3 = new Form3();
+            form3.barid = bars;
+            form3.Show();
         }
 
         private void Form4_Load(object sender, EventArgs e)

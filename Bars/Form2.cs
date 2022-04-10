@@ -59,11 +59,12 @@ namespace Bars
         {
             if (loads > prices[0] || bypass)
             {
+                bars++;
                 Form3 form3 = new Form3();
+                form3.barid = bars;
                 form3.Show();
                 loads -= prices[0];
                 prices[0] *= 4;
-                bars++;
             }
         }
 
