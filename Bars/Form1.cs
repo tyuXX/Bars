@@ -28,11 +28,12 @@ namespace Bars
             {
                 try
                 {
+                    
                     string[] master = File.ReadAllLines(parame);
                     minimum = Convert.ToInt32(decode(master[0], hs));
                     sub = BigInteger.Parse(decode(master[1], hs));
                     loads = BigInteger.Parse(decode(master[2], hs));
-                    bars = BigInteger.Parse(decode(master[3], hs));
+                    BigInteger bart = BigInteger.Parse(decode(master[3], hs));
                     banks = BigInteger.Parse(decode(master[4], hs));
                     prices[0] = BigInteger.Parse(decode(master[5], hs));
                     prices[1] = BigInteger.Parse(decode(master[6], hs));
@@ -42,10 +43,11 @@ namespace Bars
                     rebirts = BigInteger.Parse(decode(master[10], hs));
                     tax = BigInteger.Parse(decode(master[11], hs));
                     taxevade = Convert.ToBoolean(decode(master[12], hs));
-                    for (BigInteger bar = 0; bar < bars; bar++)
+                    for (BigInteger bar = bart; bar > 0; bar--)
                     {
+                        bars++;
                         Form3 form3 = new Form3();
-                        form3.barid = bar;
+                        form3.barid = bars;
                         form3.Show();
                     }
                 }
@@ -84,7 +86,10 @@ namespace Bars
 
         private void Banks_Tick(object sender, EventArgs e)
         {
-            loads += (loads * banks) / 100;
+            if(banks > 0)
+            {
+                loads += (loads * banks) / 100;
+            }
         }
 
         private void unlockToolStripMenuItem_Click(object sender, EventArgs e)
@@ -118,24 +123,25 @@ namespace Bars
                 openFileDialog1.Filter = "Bars save files(*.brs) | *.brs";
                 if (openFileDialog1.ShowDialog() == DialogResult.OK)
                 {
-                    string[] master = File.ReadAllLines(openFileDialog1.FileName);
-                    minimum = Convert.ToInt32(decode(master[0],hs));
-                    sub = BigInteger.Parse(decode(master[1],hs));
-                    loads = BigInteger.Parse(decode(master[2],hs));
-                    bars = BigInteger.Parse(decode(master[3],hs));
-                    banks = BigInteger.Parse(decode(master[4],hs));
-                    prices[0] = BigInteger.Parse(decode(master[5],hs));
-                    prices[1] = BigInteger.Parse(decode(master[6],hs));
-                    prices[2] = BigInteger.Parse(decode(master[7],hs));
-                    prices[3] = BigInteger.Parse(decode(master[8],hs));
+                    string[] master = File.ReadAllLines(parame);
+                    minimum = Convert.ToInt32(decode(master[0], hs));
+                    sub = BigInteger.Parse(decode(master[1], hs));
+                    loads = BigInteger.Parse(decode(master[2], hs));
+                    BigInteger bart = BigInteger.Parse(decode(master[3], hs));
+                    banks = BigInteger.Parse(decode(master[4], hs));
+                    prices[0] = BigInteger.Parse(decode(master[5], hs));
+                    prices[1] = BigInteger.Parse(decode(master[6], hs));
+                    prices[2] = BigInteger.Parse(decode(master[7], hs));
+                    prices[3] = BigInteger.Parse(decode(master[8], hs));
                     mult = BigInteger.Parse(decode(master[9], hs));
                     rebirts = BigInteger.Parse(decode(master[10], hs));
                     tax = BigInteger.Parse(decode(master[11], hs));
                     taxevade = Convert.ToBoolean(decode(master[12], hs));
-                    for (BigInteger bar = 0; bar < bars;bar++)
+                    for (BigInteger bar = bart; bar > 0; bar--)
                     {
+                        bars++;
                         Form3 form3 = new Form3();
-                        form3.barid = bar;
+                        form3.barid = bars;
                         form3.Show();
                     }
                 }
@@ -212,7 +218,7 @@ namespace Bars
         {
             try
             {
-                string[] master = { encode(minimum.ToString(), hs), encode(sub.ToString(), hs), encode(loads.ToString(), hs), encode(bars.ToString(), hs), encode(banks.ToString(), hs), encode(prices[0].ToString(), hs), encode(prices[1].ToString(), hs), encode(prices[2].ToString(), hs), encode(prices[3].ToString(), hs), encode(mult.ToString(), hs), encode(rebirts.ToString(), hs), encode(tax.ToString(), hs) };
+                string[] master = { encode(minimum.ToString(), hs), encode(sub.ToString(), hs), encode(loads.ToString(), hs), encode(bars.ToString(), hs), encode(banks.ToString(), hs), encode(prices[0].ToString(), hs), encode(prices[1].ToString(), hs), encode(prices[2].ToString(), hs), encode(prices[3].ToString(), hs), encode(mult.ToString(), hs), encode(rebirts.ToString(), hs), encode(tax.ToString(), hs), encode(taxevade.ToString(), hs) };
                 File.WriteAllLines(parame, master);
             }
             catch (Exception ex)
@@ -233,6 +239,12 @@ namespace Bars
                 oFFToolStripMenuItem.Text = "ON";
                 TopMost = true;
             }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Form5 form5 = new Form5();
+            form5.Show();
         }
     }
 }
