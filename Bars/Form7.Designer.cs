@@ -33,10 +33,12 @@ namespace Bars
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tick = new System.Windows.Forms.Timer(this.components);
             this.label2 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.button3 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -52,7 +54,7 @@ namespace Bars
             // 
             this.button1.Location = new System.Drawing.Point(12, 85);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(188, 31);
+            this.button1.Size = new System.Drawing.Size(203, 31);
             this.button1.TabIndex = 1;
             this.button1.Text = "Buy Storage";
             this.button1.UseVisualStyleBackColor = true;
@@ -62,10 +64,16 @@ namespace Bars
             // 
             this.textBox1.Location = new System.Drawing.Point(12, 57);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(188, 22);
+            this.textBox1.Size = new System.Drawing.Size(203, 22);
             this.textBox1.TabIndex = 2;
             this.textBox1.Text = "Buy Storage - SP";
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
+            // tick
+            // 
+            this.tick.Enabled = true;
+            this.tick.Interval = 1;
+            this.tick.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // label2
             // 
@@ -78,38 +86,57 @@ namespace Bars
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(12, 124);
+            this.textBox2.Location = new System.Drawing.Point(10, 170);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(188, 22);
+            this.textBox2.Size = new System.Drawing.Size(203, 22);
             this.textBox2.TabIndex = 5;
-            this.textBox2.Text = "Buy SP - LD";
+            this.textBox2.Text = "Buy Storage Point - LD";
             this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(12, 152);
+            this.button2.Location = new System.Drawing.Point(10, 198);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(188, 31);
+            this.button2.Size = new System.Drawing.Size(203, 31);
             this.button2.TabIndex = 4;
-            this.button2.Text = "Buy Storage Points";
+            this.button2.Text = "Buy Storage Point";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // timer1
+            // button3
             // 
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            this.button3.Location = new System.Drawing.Point(12, 122);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(203, 31);
+            this.button3.TabIndex = 6;
+            this.button3.Text = "Buy ALL Storage";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(10, 235);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(203, 31);
+            this.button4.TabIndex = 7;
+            this.button4.Text = "Buy ALL Storage Point";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // Form7
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(225, 271);
+            this.Controls.Add(this.button4);
+            this.Controls.Add(this.button3);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "Form7";
             this.Text = "Storage";
             this.ResumeLayout(false);
@@ -122,9 +149,11 @@ namespace Bars
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Timer tick;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button4;
     }
 }

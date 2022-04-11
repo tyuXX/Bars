@@ -40,39 +40,51 @@ namespace Bars
         {
             try
             {
-                if (!string.IsNullOrEmpty(textBox1.Text))
+                if (!string.IsNullOrEmpty(textBox2.Text))
                 {
-                    bstoragep = BigInteger.Parse(textBox1.Text);
+                    bstoragep = BigInteger.Parse(textBox2.Text);
                 }
             }
             catch (Exception ex)
             {
-                textBox1.Text = "Enter a number";
+                textBox2.Text = "Enter a number";
             }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if(spoints > bstorage)
+            if(supoints >= bstorage || bypass)
             {
                 smax += bstorage;
-                spoints -= bstorage;
-            }
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            if((loads / 4) > bstoragep)
-            {
-                spoints += bstoragep;
-                loads -= bstoragep * 4;
+                supoints -= bstorage;
             }
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
             label1.Text = "Maximum Storage:" + smax;
-            label2.Text = "Storage Points:" + spoints;
+            label2.Text = "Storage Points:" + supoints;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (loads >= bstoragep * 4 || bypass)
+            {
+                supoints += bstoragep;
+                loads -= bstoragep * 4;
+            }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            smax += supoints;
+            supoints = 0;
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            supoints += (loads / 4);
+            loads = 0;
         }
     }
 }

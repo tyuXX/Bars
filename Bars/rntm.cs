@@ -26,7 +26,7 @@ namespace Bars
         internal static BigInteger cpopulation = 0;
         internal static BigInteger cpopulationrise = 0;
         internal static byte extrachance = 0;
-        internal static BigInteger spoints = 0;
+        internal static BigInteger supoints = 0;
         internal static BigInteger smax = 100000000;
         internal static bool taxevade = false;
         internal static bool bypass = false;
