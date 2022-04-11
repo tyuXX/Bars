@@ -70,7 +70,7 @@ namespace Bars
 
         private void tick_Tick(object sender, EventArgs e)
         {
-            if(rebirts > 10)
+            if(rebirts >= 7)
             {
                 button4.Show();
             }
