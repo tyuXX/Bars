@@ -74,5 +74,10 @@ namespace Bars
                 loads = 0;
             }
         }
+
+        private void Form5_Load(object sender, EventArgs e)
+        {
+            chance += extrachance;
+        }
     }
 }

@@ -4,17 +4,73 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static Bars.rntm;
 
 namespace Bars
 {
     public partial class Form6 : Form
     {
+        BigInteger investment = 0;
         public Form6()
         {
             InitializeComponent();
+        }
+
+        private void tick_Tick(object sender, EventArgs e)
+        {
+            label1.Text = "Enflasion:" + cenflasion;
+            label2.Text = "Income:" + cincome;
+            label3.Text = "Outcome:" + coutcome;
+            label4.Text = "Size:" + csize;
+            label5.Text = "Population:" + cpopulation;
+            label6.Text = "Population Rise:" + cpopulationrise;
+            cpopulationrise = cincome / 10;
+        }
+
+        private void Form6_Load(object sender, EventArgs e)
+        {
+            textBox1.Text = cname;
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            cname = textBox1.Text;
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (!string.IsNullOrEmpty(textBox1.Text))
+                {
+                    investment = BigInteger.Parse(textBox1.Text);
+                }
+            }
+            catch (Exception ex)
+            {
+                textBox1.Text = "Enter a number";
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if(investment <= loads)
+            {
+                loads -= investment;
+                cincome += investment / 75;
+                csize += investment / 100;
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            cincome += loads / 75;
+            csize += loads / 100;
+            loads = 0;
         }
     }
 }

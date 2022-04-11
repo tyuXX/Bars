@@ -24,6 +24,7 @@ namespace Bars
         private void Form1_Load(object sender, EventArgs e)
         {
             button2.Hide();
+            button4.Hide();
             if (!string.IsNullOrEmpty(parame))
             {
                 try
@@ -43,6 +44,15 @@ namespace Bars
                     rebirts = BigInteger.Parse(decode(master[10], hs));
                     tax = BigInteger.Parse(decode(master[11], hs));
                     taxevade = Convert.ToBoolean(decode(master[12], hs));
+                    prices[4] = BigInteger.Parse(decode(master[13], hs));
+                    cincome = BigInteger.Parse(decode(master[14], hs));
+                    coutcome = BigInteger.Parse(decode(master[15], hs));
+                    cname = decode(master[16], hs);
+                    cenflasion = BigInteger.Parse(decode(master[17], hs));
+                    csize = BigInteger.Parse(decode(master[18], hs));
+                    cpopulation = BigInteger.Parse(decode(master[19], hs));
+                    cpopulationrise = BigInteger.Parse(decode(master[20], hs));
+                    extrachance = byte.Parse(decode(master[21], hs));
                     for (BigInteger bar = bart; bar > 0; bar--)
                     {
                         bars++;
@@ -60,6 +70,10 @@ namespace Bars
 
         private void tick_Tick(object sender, EventArgs e)
         {
+            if(rebirts > 10)
+            {
+                button4.Show();
+            }
             if(progressBar1.Value == progressBar1.Maximum)
             {
                 progressBar1.Value = minimum;
@@ -102,7 +116,7 @@ namespace Bars
         {
             try
             {
-                string[] master = { encode(minimum.ToString(),hs), encode(sub.ToString(),hs), encode(loads.ToString(),hs), encode(bars.ToString(),hs), encode(banks.ToString(), hs), encode(prices[0].ToString(),hs), encode(prices[1].ToString(), hs), encode(prices[2].ToString(), hs), encode(prices[3].ToString(), hs), encode(mult.ToString(), hs), encode(rebirts.ToString(), hs), encode(tax.ToString(), hs), encode(taxevade.ToString(), hs) };
+                string[] master = { encode(minimum.ToString(), hs), encode(sub.ToString(), hs), encode(loads.ToString(), hs), encode(bars.ToString(), hs), encode(banks.ToString(), hs), encode(prices[0].ToString(), hs), encode(prices[1].ToString(), hs), encode(prices[2].ToString(), hs), encode(prices[3].ToString(), hs), encode(mult.ToString(), hs), encode(rebirts.ToString(), hs), encode(tax.ToString(), hs), encode(taxevade.ToString(), hs), encode(prices[4].ToString(), hs), encode(cincome.ToString(), hs), encode(coutcome.ToString(), hs), encode(cname, hs), encode(cenflasion.ToString(), hs), encode(csize.ToString(), hs), encode(cpopulation.ToString(), hs), encode(cpopulationrise.ToString(), hs), encode(extrachance.ToString(), hs), };
                 saveFileDialog1.Filter = "Bars save files (*.brs) | *.brs";
                 if (saveFileDialog1.ShowDialog() == DialogResult.OK)
                 {
@@ -137,6 +151,15 @@ namespace Bars
                     rebirts = BigInteger.Parse(decode(master[10], hs));
                     tax = BigInteger.Parse(decode(master[11], hs));
                     taxevade = Convert.ToBoolean(decode(master[12], hs));
+                    prices[4] = BigInteger.Parse(decode(master[13], hs));
+                    cincome = BigInteger.Parse(decode(master[14], hs));
+                    coutcome = BigInteger.Parse(decode(master[15], hs));
+                    cname = decode(master[16], hs);
+                    cenflasion = BigInteger.Parse(decode(master[17], hs));
+                    csize = BigInteger.Parse(decode(master[18], hs));
+                    cpopulation = BigInteger.Parse(decode(master[19], hs));
+                    cpopulationrise = BigInteger.Parse(decode(master[20], hs));
+                    extrachance = byte.Parse(decode(master[21], hs));
                     for (BigInteger bar = bart; bar > 0; bar--)
                     {
                         bars++;
@@ -187,9 +210,16 @@ namespace Bars
             loads = 0;
             bars = 0;
             banks = 0;
+            coutcome = 0;
+            cincome = 0;
+            cpopulation = 5;
+            cpopulationrise = 0;
+            csize = 50;
+            extrachance = 0;
+            cenflasion = 0;
             mult += 1;
             rebirts += 1;
-            prices = new BigInteger[] { 10 ,100,1000,1000000};
+            prices = new BigInteger[] { 10,100,1000,1000000,100000 };
         }
 
         private void tax_Tick(object sender, EventArgs e)
@@ -218,7 +248,7 @@ namespace Bars
         {
             try
             {
-                string[] master = { encode(minimum.ToString(), hs), encode(sub.ToString(), hs), encode(loads.ToString(), hs), encode(bars.ToString(), hs), encode(banks.ToString(), hs), encode(prices[0].ToString(), hs), encode(prices[1].ToString(), hs), encode(prices[2].ToString(), hs), encode(prices[3].ToString(), hs), encode(mult.ToString(), hs), encode(rebirts.ToString(), hs), encode(tax.ToString(), hs), encode(taxevade.ToString(), hs) };
+                string[] master = { encode(minimum.ToString(), hs), encode(sub.ToString(), hs), encode(loads.ToString(), hs), encode(bars.ToString(), hs), encode(banks.ToString(), hs), encode(prices[0].ToString(), hs), encode(prices[1].ToString(), hs), encode(prices[2].ToString(), hs), encode(prices[3].ToString(), hs), encode(mult.ToString(), hs), encode(rebirts.ToString(), hs), encode(tax.ToString(), hs), encode(taxevade.ToString(), hs), encode(prices[4].ToString(), hs), encode(cincome.ToString(), hs), encode(coutcome.ToString(), hs), encode(cname, hs), encode(cenflasion.ToString(), hs), encode(csize.ToString(), hs), encode(cpopulation.ToString(), hs), encode(cpopulationrise.ToString(), hs), encode(extrachance.ToString(), hs), };
                 File.WriteAllLines(parame, master);
             }
             catch (Exception ex)
@@ -245,6 +275,19 @@ namespace Bars
         {
             Form5 form5 = new Form5();
             form5.Show();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Form6 form6 = new Form6();
+            form6.Show();
+        }
+
+        private void ctick_Tick(object sender, EventArgs e)
+        {
+            loads += (cincome * mult) - coutcome;
+            coutcome = cpopulation / 1000;
+            cpopulation += cpopulationrise;
         }
     }
 }

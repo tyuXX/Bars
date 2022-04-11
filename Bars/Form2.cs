@@ -30,6 +30,10 @@ namespace Bars
             {
                 button3.Hide();
             }
+            if (!(extrachance < 18))
+            {
+                button6.Hide();
+            }
             if (taxevade)
             {
                 button5.Hide();
@@ -39,10 +43,12 @@ namespace Bars
             label3.Text = "+LD:" + (sub - 1);
             label4.Text = "Minimum:" + minimum;
             label5.Text = "Banks:" + banks;
+            label6.Text = "Extra Chance:" + extrachance;
             button1.Text = "More Bars:" + prices[0] + "LD";
             button2.Text = "Extra LD:" + prices[1] + "LD";
             button3.Text = "Higher Min:" + prices[2] + "LD";
             button4.Text = "More Banks:" + prices[3] + "LD";
+            button6.Text = "Extra Chance:" + prices[4] + "LD";
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -97,6 +103,19 @@ namespace Bars
             {
                 loads -= 10000000;
                 taxevade = true;
+            }
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            if (extrachance < 18)
+            {
+                if (loads > prices[4] || bypass)
+                {
+                    loads -= prices[4];
+                    prices[4] *= 10;
+                    extrachance++;
+                }
             }
         }
     }

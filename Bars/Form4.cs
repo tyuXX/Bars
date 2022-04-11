@@ -29,6 +29,7 @@ namespace Bars
                 button1.Show();
                 button2.Show();
                 checkBox1.Show();
+                label1.Show();
             }
         }
 
@@ -55,6 +56,12 @@ namespace Bars
             button1.Hide();
             button2.Hide();
             checkBox1.Hide();
+            label1.Hide();
+        }
+
+        private void tick_Tick(object sender, EventArgs e)
+        {
+            label1.Text = "To Rebirt:\n" + loads / (BigInteger.Pow(rebirts + 2, 16) / 100) + "%\nNeed:\n" + BigInteger.Pow(rebirts + 2, 16);
         }
     }
 }
