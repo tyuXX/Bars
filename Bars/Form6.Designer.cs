@@ -84,9 +84,9 @@ namespace Bars
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(12, 88);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(55, 17);
+            this.label4.Size = new System.Drawing.Size(81, 17);
             this.label4.TabIndex = 4;
-            this.label4.Text = "Size:50";
+            this.label4.Text = "Size:50m^2";
             // 
             // tick
             // 

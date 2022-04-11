@@ -80,8 +80,8 @@ namespace Bars
                 loads += sub * mult;
             }
             progressBar1.Value++;
-            label1.Text = "%" + progressBar1.Value.ToString();
-            label2.Text = "Loads:" + loads.ToString();
+            label1.Text = "%" + progressBar1.Value;
+            label2.Text = "Loads:" + loads + "/" + smax;
             if (loads > BigInteger.Pow(rebirts + 2,16) || bypass)
             {
                 button2.Show();
@@ -89,6 +89,10 @@ namespace Bars
             else
             {
                 button2.Hide();
+            }
+            if(loads > (smax * mult))
+            {
+                loads = smax * mult;
             }
         }
 
@@ -288,6 +292,11 @@ namespace Bars
             loads += (cincome * mult) - coutcome;
             coutcome = cpopulation / 1000;
             cpopulation += cpopulationrise;
+        }
+
+        private void spp_Tick(object sender, EventArgs e)
+        {
+            spoints += sub * mult;
         }
     }
 }

@@ -25,7 +25,7 @@ namespace Bars
             label1.Text = "Enflasion:" + cenflasion;
             label2.Text = "Income:" + cincome;
             label3.Text = "Outcome:" + coutcome;
-            label4.Text = "Size:" + csize;
+            label4.Text = "Size:" + csize + "m^2";
             label5.Text = "Population:" + cpopulation;
             label6.Text = "Population Rise:" + cpopulationrise;
             cpopulationrise = cincome / 10;

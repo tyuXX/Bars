@@ -54,6 +54,7 @@
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.ctick = new System.Windows.Forms.Timer(this.components);
+            this.spp = new System.Windows.Forms.Timer(this.components);
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -87,9 +88,9 @@
             this.label2.Location = new System.Drawing.Point(12, 30);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(59, 17);
+            this.label2.Size = new System.Drawing.Size(127, 17);
             this.label2.TabIndex = 2;
-            this.label2.Text = "Loads:0";
+            this.label2.Text = "Loads:0/10000000";
             // 
             // button1
             // 
@@ -118,7 +119,7 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(381, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(381, 30);
             this.menuStrip1.TabIndex = 4;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -136,7 +137,7 @@
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
             this.openToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
             this.openToolStripMenuItem.Text = "Open";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
@@ -144,7 +145,7 @@
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
             this.saveToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
             this.saveToolStripMenuItem.Text = "Save";
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
             // 
@@ -153,13 +154,13 @@
             this.autoSaveToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.oNToolStripMenuItem});
             this.autoSaveToolStripMenuItem.Name = "autoSaveToolStripMenuItem";
-            this.autoSaveToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.autoSaveToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
             this.autoSaveToolStripMenuItem.Text = "Auto Save";
             // 
             // oNToolStripMenuItem
             // 
             this.oNToolStripMenuItem.Name = "oNToolStripMenuItem";
-            this.oNToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.oNToolStripMenuItem.Size = new System.Drawing.Size(117, 26);
             this.oNToolStripMenuItem.Text = "OFF";
             this.oNToolStripMenuItem.Click += new System.EventHandler(this.oNToolStripMenuItem_Click);
             // 
@@ -259,6 +260,11 @@
             this.ctick.Enabled = true;
             this.ctick.Tick += new System.EventHandler(this.ctick_Tick);
             // 
+            // spp
+            // 
+            this.spp.Interval = 400;
+            this.spp.Tick += new System.EventHandler(this.spp_Tick);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -312,6 +318,7 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Timer ctick;
+        private System.Windows.Forms.Timer spp;
     }
 }
 
