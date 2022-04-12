@@ -40,7 +40,7 @@ namespace Bars
         {
             cname = textBox1.Text;
         }
-
+        
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
             try
