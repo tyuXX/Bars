@@ -41,7 +41,7 @@ namespace Bars
             // textBox1
             // 
             this.textBox1.Location = new System.Drawing.Point(207, 132);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(4);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(132, 22);
             this.textBox1.TabIndex = 0;
@@ -51,7 +51,7 @@ namespace Bars
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(16, 15);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(140, 28);
             this.button1.TabIndex = 1;
@@ -62,7 +62,7 @@ namespace Bars
             // button2
             // 
             this.button2.Location = new System.Drawing.Point(16, 50);
-            this.button2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button2.Margin = new System.Windows.Forms.Padding(4);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(140, 28);
             this.button2.TabIndex = 2;
@@ -74,7 +74,7 @@ namespace Bars
             // 
             this.checkBox1.AutoSize = true;
             this.checkBox1.Location = new System.Drawing.Point(16, 86);
-            this.checkBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.checkBox1.Margin = new System.Windows.Forms.Padding(4);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(76, 21);
             this.checkBox1.TabIndex = 3;
@@ -87,9 +87,9 @@ namespace Bars
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(13, 111);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(71, 68);
+            this.label1.Size = new System.Drawing.Size(71, 102);
             this.label1.TabIndex = 4;
-            this.label1.Text = "To Rebirt:\r\n0%\r\nNeed:\r\n0LD";
+            this.label1.Text = "To Rebirt:\r\n0%\r\nNeed:\r\n0LD\r\nRebirts:\r\n0";
             // 
             // tick
             // 
@@ -108,7 +108,7 @@ namespace Bars
             this.Controls.Add(this.button1);
             this.Controls.Add(this.textBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form4";
             this.Text = "Developer Page";
             this.TopMost = true;

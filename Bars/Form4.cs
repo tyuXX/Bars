@@ -61,7 +61,7 @@ namespace Bars
 
         private void tick_Tick(object sender, EventArgs e)
         {
-            label1.Text = "To Rebirt:\n" + loads / (BigInteger.Pow(rebirts + 2, 16) / 100) + "%\nNeed:\n" + BigInteger.Pow(rebirts + 2, 16);
+            label1.Text = "To Rebirt:\n" + loads / (BigInteger.Pow(rebirts + 2, 16) / 100) + "%\nNeed:\n" + BigInteger.Pow(rebirts + 2, 16) + "\nRebirts:\n" + rebirts;
         }
     }
 }

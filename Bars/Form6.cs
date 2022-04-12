@@ -45,9 +45,9 @@ namespace Bars
         {
             try
             {
-                if (!string.IsNullOrEmpty(textBox1.Text))
+                if (!string.IsNullOrEmpty(textBox2.Text))
                 {
-                    investment = BigInteger.Parse(textBox1.Text);
+                    investment = BigInteger.Parse(textBox2.Text);
                 }
             }
             catch (Exception ex)
