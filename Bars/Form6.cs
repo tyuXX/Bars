@@ -58,6 +58,7 @@ namespace Bars
 
         private void button1_Click(object sender, EventArgs e)
         {
+            cstarted = true;
             if(investment <= loads)
             {
                 loads -= investment;
@@ -69,6 +70,7 @@ namespace Bars
 
         private void button2_Click(object sender, EventArgs e)
         {
+            cstarted = true;
             cincome += loads / 75;
             csize += loads / 100;
             cenflasion -= loads / 100000;

@@ -21,7 +21,7 @@ namespace Bars
         internal static BigInteger cincome = 0;
         internal static BigInteger coutcome = 0;
         internal static string cname = "Country Name";
-        internal static BigInteger cenflasion = 0;
+        internal static BigInteger cenflasion = 1;
         internal static BigInteger csize = 0;
         internal static BigInteger cpopulation = 0;
         internal static BigInteger cpopulationrise = 0;
@@ -31,6 +31,7 @@ namespace Bars
         internal static bool taxevade = false;
         internal static bool bypass = false;
         internal static bool f3s = false;
+        internal static bool cstarted = false;
         internal static string hs = "barsenc1234";
         internal static string parame;
     }
