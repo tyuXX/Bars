@@ -259,6 +259,7 @@
             // ctick
             // 
             this.ctick.Enabled = true;
+            this.ctick.Interval = 1000;
             this.ctick.Tick += new System.EventHandler(this.ctick_Tick);
             // 
             // button5
