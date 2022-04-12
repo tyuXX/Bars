@@ -52,7 +52,7 @@ namespace Bars
             }
             catch (Exception ex)
             {
-                textBox1.Text = "Enter a number";
+                textBox2.Text = "Enter a number";
             }
         }
 
