@@ -56,6 +56,7 @@
             this.ctick = new System.Windows.Forms.Timer(this.components);
             this.button5 = new System.Windows.Forms.Button();
             this.spp = new System.Windows.Forms.Timer(this.components);
+            this.cticks = new System.Windows.Forms.Timer(this.components);
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -279,6 +280,12 @@
             this.spp.Interval = 4000;
             this.spp.Tick += new System.EventHandler(this.spp_Tick);
             // 
+            // cticks
+            // 
+            this.cticks.Enabled = true;
+            this.cticks.Interval = 10000;
+            this.cticks.Tick += new System.EventHandler(this.cticks_Tick);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -335,6 +342,7 @@
         private System.Windows.Forms.Timer ctick;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Timer spp;
+        private System.Windows.Forms.Timer cticks;
     }
 }
 

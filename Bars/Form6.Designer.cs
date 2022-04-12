@@ -114,7 +114,7 @@ namespace Bars
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(149, 6);
+            this.button1.Location = new System.Drawing.Point(272, 3);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(100, 23);
             this.button1.TabIndex = 7;
@@ -124,7 +124,7 @@ namespace Bars
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(149, 35);
+            this.textBox2.Location = new System.Drawing.Point(272, 32);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(100, 22);
             this.textBox2.TabIndex = 8;
@@ -133,7 +133,7 @@ namespace Bars
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(149, 63);
+            this.button2.Location = new System.Drawing.Point(272, 60);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(100, 23);
             this.button2.TabIndex = 9;
@@ -145,7 +145,7 @@ namespace Bars
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(280, 169);
+            this.ClientSize = new System.Drawing.Size(384, 169);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.button1);
@@ -156,6 +156,7 @@ namespace Bars
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "Form6";
             this.Text = "Countries";
             this.Load += new System.EventHandler(this.Form6_Load);

@@ -297,7 +297,7 @@ namespace Bars
 
         private void ctick_Tick(object sender, EventArgs e)
         {
-            loads += (cincome * mult) - coutcome;
+            loads += (cincome * mult) - (coutcome * cenflasion);
             coutcome = cpopulation / 1000;
             cpopulation += cpopulationrise;
         }
@@ -311,6 +311,11 @@ namespace Bars
         private void spp_Tick(object sender, EventArgs e)
         {
             supoints += sub * mult;
+        }
+
+        private void cticks_Tick(object sender, EventArgs e)
+        {
+            cenflasion += 1;
         }
     }
 }

@@ -63,6 +63,7 @@ namespace Bars
                 loads -= investment;
                 cincome += investment / 75;
                 csize += investment / 100;
+                cenflasion -= investment / 100000;
             }
         }
 
@@ -70,6 +71,7 @@ namespace Bars
         {
             cincome += loads / 75;
             csize += loads / 100;
+            cenflasion -= loads / 100000;
             loads = 0;
         }
     }
