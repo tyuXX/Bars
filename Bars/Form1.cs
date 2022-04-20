@@ -9,6 +9,7 @@ using System.Numerics;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
+using System.Net;
 using System.Windows.Forms;
 using static Bars.rntm;
 
@@ -68,6 +69,20 @@ namespace Bars
                 {
 
                 }
+                try
+                {
+                    dowload("https://raw.githubusercontent.com/tyuXX/Bars/master/update", "update");
+                    if (File.ReadAllText("update") != update)
+                    {
+                        nupdate = File.ReadAllText("update");
+                        Form9 form9 = new Form9();
+                        form9.Show();
+                    }
+                }
+                catch (Exception ex)
+                {
+
+                }
             }
         }
 
@@ -118,6 +133,13 @@ namespace Bars
             if(banks > 0)
             {
                 loads += (loads * banks) / 100;
+            }
+        }
+        private void dowload(string link, string name)
+        {
+            using (WebClient client = new WebClient())
+            {
+                client.DownloadFile(link, name);
             }
         }
 
