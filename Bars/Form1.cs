@@ -165,13 +165,12 @@ namespace Bars
 
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            openFileDialog1.Filter = "Bars save files(*.brs) | *.brs";
-            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            try
             {
-                try
+                openFileDialog1.Filter = "Bars save files(*.brs) | *.brs";
+                if (openFileDialog1.ShowDialog() == DialogResult.OK)
                 {
-
-                    string[] master = File.ReadAllLines(parame);
+                    string[] master = File.ReadAllLines(openFileDialog1.FileName);
                     minimum = int.Parse(decode(master[0], hs));
                     sub = BigInteger.Parse(decode(master[1], hs));
                     loads = BigInteger.Parse(decode(master[2], hs));
@@ -210,8 +209,8 @@ namespace Bars
                         form3.Show();
                     }
                 }
-                catch (Exception ex) { }
             }
+            catch (Exception ex) { }
         }
         private string encode(string enc,string hash)
         {
