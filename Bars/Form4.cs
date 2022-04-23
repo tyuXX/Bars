@@ -21,6 +21,10 @@ namespace Bars
                 button2.Show();
                 checkBox1.Show();
                 label1.Show();
+                textBox2.Show();
+                textBox3.Show();
+                textBox4.Show();
+                textBox5.Show();
             }
         }
 
