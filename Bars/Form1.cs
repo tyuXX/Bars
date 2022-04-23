@@ -73,10 +73,13 @@ namespace Bars
         {
             dowload("https://raw.githubusercontent.com/tyuXX/Bars/master/update", "update.u");
             if (!File.Exists("update.u")) { MessageBox.Show("Cannot check for updates"); return; }
-            if (File.ReadAllText("update.u") == update) return;
-            nupdate = File.ReadAllText("update.u");
-            Form9 form9 = new Form9();
-            form9.Show();
+            if (BigInteger.Parse(File.ReadAllText("update.u")) == BigInteger.Parse(update)) { return; }
+            else
+            {
+                nupdate = File.ReadAllText("update.u");
+                Form9 form9 = new Form9();
+                form9.Show();
+            }
         }
 
         private void tick_Tick(object sender, EventArgs e)
