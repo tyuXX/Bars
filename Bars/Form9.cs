@@ -22,5 +22,10 @@ namespace Bars
         {
             label2.Text = "Version:" + update + "\nTo\nVersion:" + nupdate;
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

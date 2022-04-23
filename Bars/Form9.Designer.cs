@@ -61,6 +61,7 @@
             this.button2.TabIndex = 2;
             this.button2.Text = "Later";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // label2
             // 
@@ -68,7 +69,7 @@
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label2.Location = new System.Drawing.Point(13, 66);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(56, 48);
+            this.label2.Size = new System.Drawing.Size(57, 48);
             this.label2.TabIndex = 3;
             this.label2.Text = "Version:\r\nto\r\nVersion:";
             // 
@@ -84,6 +85,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "Form9";
             this.Text = "Updater";
+            this.TopMost = true;
             this.Load += new System.EventHandler(this.Form9_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

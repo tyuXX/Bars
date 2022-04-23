@@ -30,7 +30,7 @@ namespace Bars
             {
                 try
                 {
-                    
+
                     string[] master = File.ReadAllLines(parame);
                     minimum = int.Parse(decode(master[0], hs));
                     sub = BigInteger.Parse(decode(master[1], hs));
@@ -65,25 +65,18 @@ namespace Bars
                         form3.Show();
                     }
                 }
-                catch (Exception ex)
-                {
-
-                }
-                try
-                {
-                    dowload("https://raw.githubusercontent.com/tyuXX/Bars/master/update", "update");
-                    if (File.ReadAllText("update") != update)
-                    {
-                        nupdate = File.ReadAllText("update");
-                        Form9 form9 = new Form9();
-                        form9.Show();
-                    }
-                }
-                catch (Exception ex)
-                {
-
-                }
+                catch (Exception ex) { }
             }
+        }
+
+        private void checkforupdates()
+        {
+            dowload("https://raw.githubusercontent.com/tyuXX/Bars/master/update", "update.u");
+            if (!File.Exists("update.u")) { MessageBox.Show("Cannot check for updates"); return; }
+            if (File.ReadAllText("update.u") == update) return;
+            nupdate = File.ReadAllText("update.u");
+            Form9 form9 = new Form9();
+            form9.Show();
         }
 
         private void tick_Tick(object sender, EventArgs e)
@@ -348,6 +341,16 @@ namespace Bars
             {
                 cenflasion += 1;
             }
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            File.Delete("update.u");
+        }
+
+        private void checkForUpdatesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            checkforupdates();
         }
     }
 }
