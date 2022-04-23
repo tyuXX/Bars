@@ -165,7 +165,6 @@
       <Link>.editorconfig</Link>
     </None>
     <None Include="bin\Debug\Bars.exe.config" />
-    <None Include="bin\x86\Debug\Bars.exe.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -180,17 +179,12 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="bin\Debug\Bars.exe" />
-    <Content Include="bin\Debug\Bars.pdb" />
-    <Content Include="bin\x86\Debug\Bars.exe" />
-    <Content Include="bin\x86\Debug\Bars.pdb" />
+    <None Include="bin\Debug\Bars.exe" />
+    <None Include="bin\Debug\Bars.pdb" />
     <Content Include="maps\1.png" />
     <Content Include="maps\amogus.png" />
     <Content Include="maps\stickman.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="bin\Release\" />
-    <Folder Include="bin\x86\Release\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
