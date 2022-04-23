@@ -1,24 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Diagnostics;
+using System.IO;
 using System.Net;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BarsUpdate
 {
     class Program
     {
-        static void dowload(string link, string name)
-        {
-            using (WebClient client = new WebClient())
-            {
-                client.DownloadFile(link, name);
-            }
-        }
         static void Main(string[] args)
         {
-
+            File.Delete(args[0]);
+            using (WebClient client = new WebClient()) client.DownloadFile("https://raw.githubusercontent.com/tyuXX/Bars/master/Bars/bin/Debug/Bars.exe", "Bars.exe");
+            Process.Start("Bars.exe");
         }
     }
 }
