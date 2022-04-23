@@ -1,12 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
 using System.Numerics;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using static Bars.rntm;
 
@@ -14,7 +7,6 @@ namespace Bars
 {
     public partial class Form4 : Form
     {
-        bool unlock = false;
         public Form4()
         {
             InitializeComponent();
@@ -24,7 +16,6 @@ namespace Bars
         {
             if(textBox1.Text == "ucdm")
             {
-                unlock = true;
                 textBox1.Hide();
                 button1.Show();
                 button2.Show();
@@ -57,11 +48,79 @@ namespace Bars
             button2.Hide();
             checkBox1.Hide();
             label1.Hide();
+            textBox3.Hide();
+            textBox4.Hide();
+            textBox5.Hide();
+            textBox2.Hide();
+            textBox3.Text = mult2.ToString();
+            textBox4.Text = mult3.ToString();
+            textBox5.Text = mult4.ToString();
+            textBox2.Text = mult5.ToString();
         }
 
         private void tick_Tick(object sender, EventArgs e)
         {
-            label1.Text = "To Rebirt:\n" + loads / (BigInteger.Pow(rebirts + 2, 16) / 100) + "%\nNeed:\n" + BigInteger.Pow(rebirts + 2, 16) + "\nRebirts:\n" + rebirts;
+            label1.Text = "To Rebirt:\n" + loads / (BigInteger.Pow(rebirts + 2, 16) / 100) + "%\nNeed:\n" + BigInteger.Pow(rebirts + 2, 16) + "\nRebirts:\n" + rebirts + "\nTotal Loads:\n" + totalloads;
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (!string.IsNullOrEmpty(textBox2.Text))
+                {
+                    mult2 = BigInteger.Parse(textBox2.Text);
+                }
+            }
+            catch (Exception ex)
+            {
+                textBox2.Text = "Enter a number";
+            }
+        }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (!string.IsNullOrEmpty(textBox3.Text))
+                {
+                    mult2 = BigInteger.Parse(textBox3.Text);
+                }
+            }
+            catch (Exception ex)
+            {
+                textBox3.Text = "Enter a number";
+            }
+        }
+
+        private void textBox4_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (!string.IsNullOrEmpty(textBox4.Text))
+                {
+                    mult2 = BigInteger.Parse(textBox4.Text);
+                }
+            }
+            catch (Exception ex)
+            {
+                textBox4.Text = "Enter a number";
+            }
+        }
+
+        private void textBox5_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (!string.IsNullOrEmpty(textBox5.Text))
+                {
+                    mult2 = BigInteger.Parse(textBox5.Text);
+                }
+            }
+            catch (Exception ex)
+            {
+                textBox5.Text = "Enter a number";
+            }
         }
     }
 }

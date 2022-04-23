@@ -28,13 +28,18 @@ namespace Bars
         internal static byte extrachance = 0;
         internal static BigInteger supoints = 0;
         internal static BigInteger smax = 100000000;
+        internal static BigInteger totalloads = 0;
+        internal static BigInteger mult2 = 1;
+        internal static BigInteger mult3 = 1;
+        internal static BigInteger mult4 = 1;
+        internal static BigInteger mult5 = 1;
         internal static bool taxevade = false;
         internal static bool bypass = false;
         internal static bool f3s = false;
         internal static bool cstarted = false;
         internal static string hs = "barsenc1234";
         internal static string parame;
-        internal static string update = "1";
-        internal static string nupdate = "1";
+        internal static string update = "2";
+        internal static string nupdate = "2";
     }
 }

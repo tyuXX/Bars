@@ -1,14 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.IO;
-using System.Linq;
 using System.Numerics;
 using System.Security.Cryptography;
 using System.Text;
-using System.Threading.Tasks;
 using System.Net;
 using System.Windows.Forms;
 using static Bars.rntm;
@@ -57,6 +51,11 @@ namespace Bars
                     smax = BigInteger.Parse(decode(master[22], hs));
                     supoints = BigInteger.Parse(decode(master[23], hs));
                     cstarted = bool.Parse(decode(master[24], hs));
+                    totalloads = BigInteger.Parse(decode(master[25], hs));
+                    mult2 = BigInteger.Parse(decode(master[26], hs));
+                    mult3 = BigInteger.Parse(decode(master[27], hs));
+                    mult4 = BigInteger.Parse(decode(master[28], hs));
+                    mult5 = BigInteger.Parse(decode(master[29], hs));
                     for (BigInteger bar = bart; bar > 0; bar--)
                     {
                         bars++;
@@ -95,12 +94,13 @@ namespace Bars
             if(progressBar1.Value == progressBar1.Maximum)
             {
                 progressBar1.Value = minimum;
-                loads += sub * mult;
+                loads += sub * mult * mult2 * mult3 * mult4 * mult5;
+                totalloads += sub * mult * mult2 * mult3 * mult4 * mult5;
             }
             progressBar1.Value++;
             label1.Text = "%" + progressBar1.Value;
             label2.Text = "Loads:" + loads + "/" + (smax * mult);
-            if (loads > BigInteger.Pow(rebirts + 2,16) || bypass)
+            if (totalloads > BigInteger.Pow(rebirts + 2,16) || bypass)
             {
                 button2.Show();
             }
@@ -149,7 +149,7 @@ namespace Bars
         {
             try
             {
-                string[] master = { encode(minimum.ToString(), hs), encode(sub.ToString(), hs), encode(loads.ToString(), hs), encode(bars.ToString(), hs), encode(banks.ToString(), hs), encode(prices[0].ToString(), hs), encode(prices[1].ToString(), hs), encode(prices[2].ToString(), hs), encode(prices[3].ToString(), hs), encode(mult.ToString(), hs), encode(rebirts.ToString(), hs), encode(tax.ToString(), hs), encode(taxevade.ToString(), hs), encode(prices[4].ToString(), hs), encode(cincome.ToString(), hs), encode(coutcome.ToString(), hs), encode(cname, hs), encode(cenflasion.ToString(), hs), encode(csize.ToString(), hs), encode(cpopulation.ToString(), hs), encode(cpopulationrise.ToString(), hs), encode(extrachance.ToString(), hs), encode(smax.ToString(), hs), encode(supoints.ToString(), hs), encode(cstarted.ToString(), hs) };
+                string[] master = { encode(minimum.ToString(), hs), encode(sub.ToString(), hs), encode(loads.ToString(), hs), encode(bars.ToString(), hs), encode(banks.ToString(), hs), encode(prices[0].ToString(), hs), encode(prices[1].ToString(), hs), encode(prices[2].ToString(), hs), encode(prices[3].ToString(), hs), encode(mult.ToString(), hs), encode(rebirts.ToString(), hs), encode(tax.ToString(), hs), encode(taxevade.ToString(), hs), encode(prices[4].ToString(), hs), encode(cincome.ToString(), hs), encode(coutcome.ToString(), hs), encode(cname, hs), encode(cenflasion.ToString(), hs), encode(csize.ToString(), hs), encode(cpopulation.ToString(), hs), encode(cpopulationrise.ToString(), hs), encode(extrachance.ToString(), hs), encode(smax.ToString(), hs), encode(supoints.ToString(), hs), encode(cstarted.ToString(), hs), encode(totalloads.ToString(), hs), encode(mult2.ToString(), hs), encode(mult3.ToString(), hs), encode(mult4.ToString(), hs), encode(mult5.ToString(), hs), };
                 saveFileDialog1.Filter = "Bars save files (*.brs) | *.brs";
                 if (saveFileDialog1.ShowDialog() == DialogResult.OK)
                 {
@@ -165,11 +165,12 @@ namespace Bars
 
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            try
+            openFileDialog1.Filter = "Bars save files(*.brs) | *.brs";
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
-                openFileDialog1.Filter = "Bars save files(*.brs) | *.brs";
-                if (openFileDialog1.ShowDialog() == DialogResult.OK)
+                try
                 {
+
                     string[] master = File.ReadAllLines(parame);
                     minimum = int.Parse(decode(master[0], hs));
                     sub = BigInteger.Parse(decode(master[1], hs));
@@ -196,6 +197,11 @@ namespace Bars
                     smax = BigInteger.Parse(decode(master[22], hs));
                     supoints = BigInteger.Parse(decode(master[23], hs));
                     cstarted = bool.Parse(decode(master[24], hs));
+                    totalloads = BigInteger.Parse(decode(master[25], hs));
+                    mult2 = BigInteger.Parse(decode(master[26], hs));
+                    mult3 = BigInteger.Parse(decode(master[27], hs));
+                    mult4 = BigInteger.Parse(decode(master[28], hs));
+                    mult5 = BigInteger.Parse(decode(master[29], hs));
                     for (BigInteger bar = bart; bar > 0; bar--)
                     {
                         bars++;
@@ -204,10 +210,7 @@ namespace Bars
                         form3.Show();
                     }
                 }
-            }
-            catch (Exception ex)
-            {
-
+                catch (Exception ex) { }
             }
         }
         private string encode(string enc,string hash)
@@ -253,6 +256,7 @@ namespace Bars
             csize = 50;
             extrachance = 0;
             cenflasion = 0;
+            totalloads = 0;
             cstarted = false;
             mult += 1;
             rebirts += 1;
@@ -285,7 +289,7 @@ namespace Bars
         {
             try
             {
-                string[] master = { encode(minimum.ToString(), hs), encode(sub.ToString(), hs), encode(loads.ToString(), hs), encode(bars.ToString(), hs), encode(banks.ToString(), hs), encode(prices[0].ToString(), hs), encode(prices[1].ToString(), hs), encode(prices[2].ToString(), hs), encode(prices[3].ToString(), hs), encode(mult.ToString(), hs), encode(rebirts.ToString(), hs), encode(tax.ToString(), hs), encode(taxevade.ToString(), hs), encode(prices[4].ToString(), hs), encode(cincome.ToString(), hs), encode(coutcome.ToString(), hs), encode(cname, hs), encode(cenflasion.ToString(), hs), encode(csize.ToString(), hs), encode(cpopulation.ToString(), hs), encode(cpopulationrise.ToString(), hs), encode(extrachance.ToString(), hs), encode(smax.ToString(), hs), encode(supoints.ToString(), hs), encode(cstarted.ToString(), hs) };
+                string[] master = { encode(minimum.ToString(), hs), encode(sub.ToString(), hs), encode(loads.ToString(), hs), encode(bars.ToString(), hs), encode(banks.ToString(), hs), encode(prices[0].ToString(), hs), encode(prices[1].ToString(), hs), encode(prices[2].ToString(), hs), encode(prices[3].ToString(), hs), encode(mult.ToString(), hs), encode(rebirts.ToString(), hs), encode(tax.ToString(), hs), encode(taxevade.ToString(), hs), encode(prices[4].ToString(), hs), encode(cincome.ToString(), hs), encode(coutcome.ToString(), hs), encode(cname, hs), encode(cenflasion.ToString(), hs), encode(csize.ToString(), hs), encode(cpopulation.ToString(), hs), encode(cpopulationrise.ToString(), hs), encode(extrachance.ToString(), hs), encode(smax.ToString(), hs), encode(supoints.ToString(), hs), encode(cstarted.ToString(), hs), encode(totalloads.ToString(), hs), encode(mult2.ToString(), hs), encode(mult3.ToString(), hs), encode(mult4.ToString(), hs), encode(mult5.ToString(), hs), };
                 File.WriteAllLines(parame, master);
             }
             catch (Exception ex)
