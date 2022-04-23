@@ -34,7 +34,7 @@ namespace Bars
         internal static bool cstarted = false;
         internal static string hs = "barsenc1234";
         internal static string parame;
-        internal static string update = "0";
-        internal static string nupdate = "0";
+        internal static string update = "1";
+        internal static string nupdate = "1";
     }
 }
