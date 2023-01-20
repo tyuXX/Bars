@@ -15,7 +15,7 @@ namespace Bars
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            if (barid > bars)
+            if (barid > bars || barid < 0)
             {
                 Close();
             }
@@ -287,7 +287,7 @@ namespace Bars
 
         private void Form3_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if(barid <= bars)
+            if (barid <= bars || barid < 0)
             {
                 Form3 form3 = new Form3();
                 form3.Show();

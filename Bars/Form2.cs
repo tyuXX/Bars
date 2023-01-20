@@ -36,11 +36,15 @@ namespace Bars
             label4.Text = "Minimum:" + minimum;
             label5.Text = "Banks:" + banks;
             label6.Text = "Extra Chance:" + extrachance;
+            label7.Text = "Bar Containers:" + barcontainers;
+            label8.Text = "Contained Bars:" + containedbars;
             button1.Text = "More Bars:" + prices[0] + "LD";
             button2.Text = "Extra LD:" + prices[1] + "LD";
             button3.Text = "Higher Min:" + prices[2] + "LD";
             button4.Text = "More Banks:" + prices[3] + "LD";
             button6.Text = "Extra Chance:" + prices[4] + "LD";
+            button7.Text = "More Bar Containers:" + prices[5] + "LD";
+            button8.Text = "More Contained Bars:" + prices[6] + "LD";
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -74,7 +78,7 @@ namespace Bars
                 {
                     loads -= prices[2];
                     prices[2] *= 2;
-                    minimum++;
+                    minimum += 1;
                 }
             }
         }
@@ -106,8 +110,31 @@ namespace Bars
                 {
                     loads -= prices[4];
                     prices[4] *= 10;
-                    extrachance++;
+                    extrachance += 1;
                 }
+            }
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            if (loads > prices[5] || bypass)
+            {
+                loads -= prices[5];
+                prices[5] *= 3;
+                barcontainers += 1;
+                Form10 form10 = new Form10();
+                form10.barcid = barcontainers;
+                form10.Show();
+            }
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            if (loads > prices[6] || bypass)
+            {
+                loads -= prices[6];
+                prices[6] *= 3;
+                containedbars += 1;
             }
         }
     }

@@ -56,12 +56,23 @@ namespace Bars
                     mult3 = BigInteger.Parse(decode(master[27], hs));
                     mult4 = BigInteger.Parse(decode(master[28], hs));
                     mult5 = BigInteger.Parse(decode(master[29], hs));
+                    containedbars = BigInteger.Parse(decode(master[230], hs));
+                    BigInteger cbart = BigInteger.Parse(decode(master[31], hs));
+                    prices[5] = BigInteger.Parse(decode(master[32], hs));
+                    prices[6] = BigInteger.Parse(decode(master[33], hs));
                     for (BigInteger bar = bart; bar > 0; bar--)
                     {
                         bars++;
                         Form3 form3 = new Form3();
                         form3.barid = bars;
                         form3.Show();
+                    }
+                    for (BigInteger cbar = cbart; cbar > 0; cbar--)
+                    {
+                        barcontainers++;
+                        Form10 form10 = new Form10();
+                        form10.barcid = barcontainers;
+                        form10.Show();
                     }
                 }
                 catch (Exception ex) { }
@@ -94,8 +105,8 @@ namespace Bars
             if(progressBar1.Value == progressBar1.Maximum)
             {
                 progressBar1.Value = minimum;
-                loads += sub * mult * mult2 * mult3 * mult4 * mult5;
-                totalloads += sub * mult * mult2 * mult3 * mult4 * mult5;
+                loads += sub * mult * mult2 * mult3 * mult4 * mult5 * 2;
+                totalloads += sub * mult * mult2 * mult3 * mult4 * mult5 * 2;
             }
             progressBar1.Value++;
             label1.Text = "%" + progressBar1.Value;
@@ -149,7 +160,7 @@ namespace Bars
         {
             try
             {
-                string[] master = { encode(minimum.ToString(), hs), encode(sub.ToString(), hs), encode(loads.ToString(), hs), encode(bars.ToString(), hs), encode(banks.ToString(), hs), encode(prices[0].ToString(), hs), encode(prices[1].ToString(), hs), encode(prices[2].ToString(), hs), encode(prices[3].ToString(), hs), encode(mult.ToString(), hs), encode(rebirts.ToString(), hs), encode(tax.ToString(), hs), encode(taxevade.ToString(), hs), encode(prices[4].ToString(), hs), encode(cincome.ToString(), hs), encode(coutcome.ToString(), hs), encode(cname, hs), encode(cenflasion.ToString(), hs), encode(csize.ToString(), hs), encode(cpopulation.ToString(), hs), encode(cpopulationrise.ToString(), hs), encode(extrachance.ToString(), hs), encode(smax.ToString(), hs), encode(supoints.ToString(), hs), encode(cstarted.ToString(), hs), encode(totalloads.ToString(), hs), encode(mult2.ToString(), hs), encode(mult3.ToString(), hs), encode(mult4.ToString(), hs), encode(mult5.ToString(), hs), };
+                string[] master = { encode(minimum.ToString(), hs), encode(sub.ToString(), hs), encode(loads.ToString(), hs), encode(bars.ToString(), hs), encode(banks.ToString(), hs), encode(prices[0].ToString(), hs), encode(prices[1].ToString(), hs), encode(prices[2].ToString(), hs), encode(prices[3].ToString(), hs), encode(mult.ToString(), hs), encode(rebirts.ToString(), hs), encode(tax.ToString(), hs), encode(taxevade.ToString(), hs), encode(prices[4].ToString(), hs), encode(cincome.ToString(), hs), encode(coutcome.ToString(), hs), encode(cname, hs), encode(cenflasion.ToString(), hs), encode(csize.ToString(), hs), encode(cpopulation.ToString(), hs), encode(cpopulationrise.ToString(), hs), encode(extrachance.ToString(), hs), encode(smax.ToString(), hs), encode(supoints.ToString(), hs), encode(cstarted.ToString(), hs), encode(totalloads.ToString(), hs), encode(mult2.ToString(), hs), encode(mult3.ToString(), hs), encode(mult4.ToString(), hs), encode(mult5.ToString(), hs), encode(containedbars.ToString(), hs), encode(barcontainers.ToString(), hs), encode(prices[5].ToString(), hs), encode(prices[6].ToString(), hs), };
                 saveFileDialog1.Filter = "Bars save files (*.brs) | *.brs";
                 if (saveFileDialog1.ShowDialog() == DialogResult.OK)
                 {
@@ -201,12 +212,23 @@ namespace Bars
                     mult3 = BigInteger.Parse(decode(master[27], hs));
                     mult4 = BigInteger.Parse(decode(master[28], hs));
                     mult5 = BigInteger.Parse(decode(master[29], hs));
+                    containedbars = BigInteger.Parse(decode(master[230], hs));
+                    BigInteger cbart = BigInteger.Parse(decode(master[31], hs));
+                    prices[5] = BigInteger.Parse(decode(master[32], hs));
+                    prices[6] = BigInteger.Parse(decode(master[33], hs));
                     for (BigInteger bar = bart; bar > 0; bar--)
                     {
                         bars++;
                         Form3 form3 = new Form3();
                         form3.barid = bars;
                         form3.Show();
+                    }
+                    for (BigInteger cbar = cbart; cbar > 0; cbar--)
+                    {
+                        barcontainers++;
+                        Form10 form10 = new Form10();
+                        form10.barcid = barcontainers;
+                        form10.Show();
                     }
                 }
             }
@@ -288,7 +310,7 @@ namespace Bars
         {
             try
             {
-                string[] master = { encode(minimum.ToString(), hs), encode(sub.ToString(), hs), encode(loads.ToString(), hs), encode(bars.ToString(), hs), encode(banks.ToString(), hs), encode(prices[0].ToString(), hs), encode(prices[1].ToString(), hs), encode(prices[2].ToString(), hs), encode(prices[3].ToString(), hs), encode(mult.ToString(), hs), encode(rebirts.ToString(), hs), encode(tax.ToString(), hs), encode(taxevade.ToString(), hs), encode(prices[4].ToString(), hs), encode(cincome.ToString(), hs), encode(coutcome.ToString(), hs), encode(cname, hs), encode(cenflasion.ToString(), hs), encode(csize.ToString(), hs), encode(cpopulation.ToString(), hs), encode(cpopulationrise.ToString(), hs), encode(extrachance.ToString(), hs), encode(smax.ToString(), hs), encode(supoints.ToString(), hs), encode(cstarted.ToString(), hs), encode(totalloads.ToString(), hs), encode(mult2.ToString(), hs), encode(mult3.ToString(), hs), encode(mult4.ToString(), hs), encode(mult5.ToString(), hs), };
+                string[] master = { encode(minimum.ToString(), hs), encode(sub.ToString(), hs), encode(loads.ToString(), hs), encode(bars.ToString(), hs), encode(banks.ToString(), hs), encode(prices[0].ToString(), hs), encode(prices[1].ToString(), hs), encode(prices[2].ToString(), hs), encode(prices[3].ToString(), hs), encode(mult.ToString(), hs), encode(rebirts.ToString(), hs), encode(tax.ToString(), hs), encode(taxevade.ToString(), hs), encode(prices[4].ToString(), hs), encode(cincome.ToString(), hs), encode(coutcome.ToString(), hs), encode(cname, hs), encode(cenflasion.ToString(), hs), encode(csize.ToString(), hs), encode(cpopulation.ToString(), hs), encode(cpopulationrise.ToString(), hs), encode(extrachance.ToString(), hs), encode(smax.ToString(), hs), encode(supoints.ToString(), hs), encode(cstarted.ToString(), hs), encode(totalloads.ToString(), hs), encode(mult2.ToString(), hs), encode(mult3.ToString(), hs), encode(mult4.ToString(), hs), encode(mult5.ToString(), hs), encode(containedbars.ToString(), hs), encode(barcontainers.ToString(), hs), encode(prices[5].ToString(), hs), encode(prices[6].ToString(), hs), };
                 File.WriteAllLines(parame, master);
             }
             catch (Exception ex)
